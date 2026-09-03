@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Analytics Dashboard</title>
+</head>
+<body>
+
+  <!-- Top Global Header -->
+  <header role="banner">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <h1>Enterprise Cloud Portal</h1>
+    <nav aria-label="Global Navigation">
+      <ul>
+        <li><a href="#dashboard" aria-current="page">Dashboard</a></li>
+        <li><a href="#reports">Reports</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <aside aria-label="Sidebar Navigation">
+    <nav>
+      <h2>Workspace</h2>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#activity">Activity Feed</a></li>
+        <li><a href="#teams">Team Members</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Primary Page Content Area -->
+  <main id="main-content" role="main">
+    
+    <!-- Section: Metrics -->
+    <section aria-labelledby="metrics-heading">
+      <h2 id="metrics-heading">Performance Metrics</h2>
+      <article>
+        <h3>Active Service Nodes</h3>
+        <p>1,248 operational units running across 6 cluster zones.</p>
+      </article>
+      <article>
+        <h3>System Uptime</h3>
+        <p>99.98% overall reliability recorded this billing quarter.</p>
+      </article>
+    </section>
+
+    <!-- Section: Data Table -->
+    <section aria-labelledby="table-heading">
+      <h2 id="table-heading">Active Service Incidents</h2>
+      <table>
+        <caption>Log of flagged infrastructure alerts</caption>
+        <thead>
+          <tr>
+            <th scope="col">Incident ID</th>
+            <th scope="col">Component</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">INC-4021</th>
+            <td>Auth Gateway</td>
+            <td>Degraded</td>
+            <td><button type="button" aria-label="Resolve incident INC-4021">Resolve</button></td>
+          </tr>
+          <tr>
+            <th scope="row">INC-4022</th>
+            <td>Database Read Replica</td>
+            <td>Healthy</td>
+            <td><button type="button" aria-label="Resolve incident INC-4022">Resolve</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section: Accessible Form -->
+    <section aria-labelledby="form-heading">
+      <h2 id="form-heading">Register New Infrastructure Endpoint</h2>
+      <form action="/submit-endpoint" method="post">
+        <fieldset>
+          <legend>Endpoint Configuration</legend>
+
+          <div>
+            <label for="service-name">Service Identifier:</label>
+            <input type="text" id="service-name" name="serviceName" required aria-required="true">
+          </div>
+
+          <div>
+            <label for="service-tier">Environment Tier:</label>
+            <select id="service-tier" name="tier" required aria-required="true">
+              <option value="">-- Choose Tier --</option>
+              <option value="prod">Production</option>
+              <option value="staging">Staging</option>
+              <option value="dev">Development</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="endpoint-notes">Deployment Notes:</label>
+            <textarea id="endpoint-notes" name="notes" rows="3" aria-describedby="notes-desc"></textarea>
+            <p id="notes-desc">Provide brief network topology context for the node.</p>
+          </div>
+
+          <button type="submit">Deploy Endpoint</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Accessible Modal Dialog -->
+    <section aria-labelledby="dialog-heading">
+      <h2 id="dialog-heading">Quick Actions</h2>
+      <button type="button" onclick="document.getElementById('confirmation-dialog').showModal()" aria-haspopup="dialog">
+        Open Maintenance Notice
+      </button>
+
+      <dialog id="confirmation-dialog" aria-labelledby="modal-title">
+        <h3 id="modal-title">Scheduled System Maintenance</h3>
+        <p>Routing updates will initiate at midnight UTC. Confirm to acknowledge.</p>
+        <form method="dialog">
+          <button value="cancel">Close</button>
+        </form>
+      </dialog>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2026 Enterprise Operations Cloud. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
